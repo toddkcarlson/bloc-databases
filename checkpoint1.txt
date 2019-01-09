@@ -1,34 +1,83 @@
-What data types do each of these values represent?
+1) What data types do each of these values represent?
 
-"A Clockwork Orange"
-42
-09/02/1945
-98.7
-$15.99
-Explain in your own words when a database might be used. Explain when a text file might be used.
+	"A Clockwork Orange" string
+	42                   integer
+	09/02/1945           date
+	98.7                 float
+	$15.99               currency
 
-Describe one difference between SQL and other programming languages.
+2) Explain in your own words when a database might be used. Explain when a text file might be used.
 
-In your own words, explain how the pieces of a database system fit together at a high level.
+	If you have a website, a database of users might be needed. A text file may be used if something needs to be human readable without processing.
 
-Explain the meaning of table, row, column, and value.
+3) Describe one difference between SQL and other programming languages.
 
-List 3 data types that can be used in a table.
+ 	SQL is a declarative rather than a procedural language.
 
-Given this payments table, provide an English description of the following queries and include their results:
+4) In your own words, explain how the pieces of a database system fit together at a high level.
 
-     SELECT date, amount
-     FROM payments;
+	Databases use a table system to store data. Properties are defined in the columns and different instances of similar items are listed in the rows.
 
-     SELECT amount
-     FROM payments
-     WHERE amount > 500;
+5) Explain the meaning of table, row, column, and value.
 
-     SELECT *
-     FROM payments
-     WHERE payee = 'Mega Foods';
-Given this users table, write SQL queries using the following criteria and include the output:
+	A table stores information on a grouping of similar items
+	A row consists of one such instant or item 
+	A column defines a property of the items
+	A value is one property of one item
+
+6) List 3 data types that can be used in a table.
+
+	VARCHAR, INT, TIMESTAMP 
+
+7) Given this payments table, provide an English description of the following queries and include their results:
+
+SELECT date, amount
+FROM payments;
+
+	Show me the dates and amounts for all payments.
+	('2016-05-01', 1500.00)
+	('2016-05-10', 37.00)
+	('2016-05-15', 124.93)
+	('2016-05-23', 54.72)
+
+SELECT amount
+FROM payments
+WHERE amount > 500;
+
+	Show me the amounts for all payments over $500.
+	('2016-05-01', 1500.00)
+
+SELECT *
+FROM payments
+WHERE payee = 'Mega Foods';
+
+	Show me the records for all payments made by Mega Foods.
+	('2016-05-15', 'Mega Foods', 124.93,  'Groceries'),
+
+8) Given this users table, write SQL queries using the following criteria and include the output:
+
+    ( 1,       'Aleesia Algorithm', 'aleesia.algorithm@uw.edu',     '2014-10-24'),
+    ( 2,       'DeAndre Data',      'datad@comcast.net',            '2008-01-20'),
+    ( 3,       'Chris Collection',  'chris.collection@outlook.com', '2012-01-20'),
+    ( 4,       'Brandy Boolean',    'bboolean@nasa.gov',            '1999-10-15');
 
 The email and sign-up date for the user named DeAndre Data.
+
+	SELECT email, signup
+	FROM users
+	WHERE name = 'DeAndre Data';
+    ('datad@comcast.net', '2008-01-20')
+
 The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+
+	SELECT userid
+	FROM users
+	WHERE email = 'aleesia.algorithm@uw.edu';
+    (1)	
+
 All the columns for the user ID equal to 4.
+
+	SELECT *
+	FROM users
+	WHERE userid = 4;
+	( 4, 'Brandy Boolean', 'bboolean@nasa.gov', '1999-10-15');
